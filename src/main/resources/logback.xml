@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?> <!-- 日志相关的配置文件 -->
+<configuration scan="true" scanPeriod="1 seconds">
+
+    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+        <resetJUL>true</resetJUL>
+    </contextListener>
+
+    <jmxConfigurator/>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>logbak: %d{HH:mm:ss.SSS} %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 把 org.springframework.web 包下面类的日志级别设置成为 DEBUG -->
+    <!-- note: 在使用Spring MVC进行开发时，经常出现 与参数类型相关的4XX错误， 把日志级别设置成为 DEBUG之后，就能查看到更多的报错信息 -->
+    <logger name="org.springframework.web" level="DEBUG"/> <!-- 1 -->
+
+    <root level="info">
+        <appender-ref ref="console"/>
+    </root>
+</configuration>
