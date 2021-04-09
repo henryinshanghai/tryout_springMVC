@@ -1,0 +1,42 @@
+@Controller
+    作用：
+        1 声明当前类型 是 SpringMVC中的Controller；
+        2 声明当前类型 是 Spring中的一个Bean（被Spring容器所管理的Bean）；
+    特征：
+        Dispatcher Servlet会：
+            1 自动扫描到 添加了这个注解的类型；
+            2 并把 Web请求 映射到 添加了@RequestMapping的方法上去。
+    用法：
+        1 添加在一个类型之上；
+    note：
+        在声明普通的bean时，使用 @Component、@Service、@Repository与 @Controller的效果是相同的。
+        因为 这些组合注解 其实都组合了 @Component注解。
+
+        在SpringMVC中 要声明一个控制器Bean时，就只能使用@Controller
+
+@RequestMapping
+    作用：映射Web请求 到 指定的Java类型/方法上；
+    用法：添加在类型上或者方法上；
+    特征：
+        1 注解在方法上的@RequestMapping路径 会 继承 注解在类上面的路径
+        2 可以使用 Servlet的request与response 来 作为@ResuqstMapping的参数；
+        3 在 @RequestMapping中， 可以对 request与response的媒体类型进行配置。
+
+@ResponseBody
+    作用：把method的返回值挡在 response中，而不是作为一个视图文件的名称来进行拼接。
+    用法：放在方法上 或者 返回值前面；
+    应用：在使用AJAX的场景中，使用它来返回JSON数据，而不是返回一个页面。
+
+@RequestBody
+    作用：支持 把请求参数放在request body中，而不是直接 链接到地址后面。
+    用法：添加到参数的前面。
+
+@PathVariable
+    作用：用来接收Web请求中的路径参数；
+    示例：请求路径- /news/001，这里的001就是路径参数，可以使用@PathVariable注解来接收。
+    用法：添加到参数的前面。
+
+@RestController
+    作用：组合两个注解 @Controller 与 @ResponseBody 的功能；
+    应用：当你的method需要返回的是 数据 而不是页面的时候。
+    特征：一个注解 胜似 两个注解。

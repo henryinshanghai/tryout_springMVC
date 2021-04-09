@@ -1,0 +1,14 @@
+HttpMessageConverter
+
+是：一个类型；
+作用：
+    用来处理request 与 response中的数据；
+特征：
+    Spring给开发者准备了大量的 HttpMessageConverter的具体实现：
+        MappingJackson2HttpMessageConverter
+        StringHttpMessageConverter
+        ...
+用法：
+    1 自定义 HttpMessageConverter；
+    2 把自定义的 Bean注册到 Spring MVC。
+

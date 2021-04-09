@@ -27,14 +27,14 @@ public class WebInitializer implements WebApplicationInitializer {
 	public void onStartup(ServletContext servletContext)
 			throws ServletException {
 		AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
-        ctx.register(MyMVCConfig.class); // 2-1 向Spring容器中注册 一个配置类
+        ctx.register(MyMVCConfig_simple.class); // 2-1 向Spring容器中注册 一个配置类
         ctx.setServletContext(servletContext); //2-2 把 配置型 与 当前的servletContext相关联
 
         //3 向Spring容器中 注册 SpringMVC的 DispatcherServlet类型
         Dynamic servlet = servletContext.addServlet("dispatcher", new DispatcherServlet(ctx));
         servlet.addMapping("/");
         servlet.setLoadOnStartup(1);
-        servlet.setAsyncSupported(true);//1
+        servlet.setAsyncSupported(true);//1 开启Spring容器对异步方法的支持
 
 	}
 

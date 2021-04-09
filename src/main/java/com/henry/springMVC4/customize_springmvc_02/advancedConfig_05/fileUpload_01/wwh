@@ -1,0 +1,6 @@
+目标：上传文件；
+Spring MVC提供的手段：
+    配置一个 MultipartResolver 类型的???
+用法：
+    1 在 Spring的控制器中， 使用 Multipart File来 接收文件；
+    2 使用 MultipartFile[] files 来接收多个文件的上传。
