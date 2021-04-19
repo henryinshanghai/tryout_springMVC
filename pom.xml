@@ -160,6 +160,22 @@
             <artifactId>commons-io</artifactId>
             <version>2.3</version>
         </dependency>
+
+        <!-- 支持测试所使用的依赖 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring-framework.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope> <!-- 声明此依赖包存活在 test周期中 aka 在发布时不会包含这些包（这是maven提供的特性） -->
+        </dependency>
+
     </dependencies>
 
     <!-- 添加如下插件 用来解决 Maven package命令时的报错-->
